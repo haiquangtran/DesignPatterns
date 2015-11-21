@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.strategy;
+package hqt.designpatterns.patterns.strategy.exampleone;
 
 public abstract class AbstractCharacter {
 	private WeaponBehaviour weapon = new NoWeaponBehaviour();

@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.strategy;
+package hqt.designpatterns.patterns.strategy.exampleone;
 
 public class NoWeaponBehaviour implements WeaponBehaviour {
 

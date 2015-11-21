@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import hqt.designpatterns.patterns.strategy.*;
+import hqt.designpatterns.patterns.strategy.exampleone.AbstractCharacter;
+import hqt.designpatterns.patterns.strategy.exampleone.BowAndArrowBehaviour;
+import hqt.designpatterns.patterns.strategy.exampleone.King;
+import hqt.designpatterns.patterns.strategy.exampleone.NoWeaponBehaviour;
+import hqt.designpatterns.patterns.strategy.exampleone.Queen;
+import hqt.designpatterns.patterns.strategy.exampleone.SwordBehaviour;
+import hqt.designpatterns.patterns.strategy.exampleone.Troll;
 
 import org.hamcrest.core.IsInstanceOf;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class StrategyTests {
+public class StrategyExampleOneTests {
 	private ArrayList<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
