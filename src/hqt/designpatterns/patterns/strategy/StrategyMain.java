@@ -2,9 +2,19 @@ package hqt.designpatterns.patterns.strategy;
 
 public class StrategyMain {
 
+	/**
+	 * Strategy Pattern.
+	 * 
+	 * Design Principle: Favor Composition over Inheritance. 
+	 * Composition is more flexible and allows change behavior at runtime. 
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		AbstractCharacter bob = new King();
+		
+		bob.fight();
+		
 	}
 
 }
