@@ -1,6 +1,6 @@
 package hqt.designpatterns.patterns.strategy.exampleone;
 
-public class StrategyMain {
+public class Main {
 
 	/**
 	 * Strategy Pattern.
