@@ -28,4 +28,15 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 		display();
 	}
 
+	public double getAverage() {
+		return average;
+	}
+	
+	public double getMax() {
+		return max;
+	}
+	
+	public double getMin() {
+		return min;
+	}
 }

@@ -28,6 +28,10 @@ public class ObserverTests {
 	private CurrentConditionsDisplay currentDisplay;
 	private StatisticsDisplay statsDisplay;
 	private ForecastDisplay forecastDisplay;
+	// 
+	private double expectedTemp = 80;
+	private double expectedHumidity = 65;
+	private double expectedPressure = 30.4;
 	
 	@Before
 	public void setUp() {
@@ -39,7 +43,6 @@ public class ObserverTests {
 
 	@Test
 	public void weatherDataTemperatureShouldBeUpdated() {
-		double expectedTemp = 80;
 		assertEquals(weatherData.getTemperature(), 0, precision);
 		weatherData.setMeasurements(expectedTemp, 65, 30.4);
 		assertEquals(weatherData.getTemperature(), expectedTemp, precision);
@@ -47,7 +50,6 @@ public class ObserverTests {
 	
 	@Test
 	public void weatherDataHumidityShouldBeUpdated() {
-		double expectedHumidity = 65;
 		assertEquals(weatherData.getHumidity(), 0, precision);
 		weatherData.setMeasurements(80, expectedHumidity, 30.4);
 		assertEquals(weatherData.getHumidity(), expectedHumidity, precision);
@@ -55,10 +57,54 @@ public class ObserverTests {
 	
 	@Test
 	public void weatherDataPressureShouldBeUpdated() {
-		double expectedPressure = 30.4;
 		assertEquals(weatherData.getPressure(), 0, precision);
 		weatherData.setMeasurements(80, 65, expectedPressure);
 		assertEquals(weatherData.getPressure(), expectedPressure, precision);
 	}
+	
+	@Test
+	public void weatherDataShouldUpdateObserverCurrentDisplay() {
+		// Not updated yet
+		assertEquals(currentDisplay.getTemperature(), 0, precision);
+		assertEquals(currentDisplay.getHumdity(), 0, precision);
+		assertEquals(currentDisplay.getPressure(), 0, precision);
+		
+		// Update weather data
+		weatherData.setMeasurements(expectedTemp, expectedHumidity, expectedPressure);
+
+		// Updated
+		assertEquals(currentDisplay.getTemperature(), expectedTemp, precision);
+		assertEquals(currentDisplay.getHumdity(), expectedHumidity, precision);
+		assertEquals(currentDisplay.getPressure(), expectedPressure, precision);
+	}
+	
+	@Test
+	public void weatherDataShouldUpdateObserverStatisticsDisplay() {
+		// Not updated yet
+		assertEquals(statsDisplay.getAverage(), 0, precision);
+		assertEquals(statsDisplay.getMax(), 0, precision);
+		assertEquals(statsDisplay.getMin(), Double.POSITIVE_INFINITY, precision);
+		
+		// Update weather data
+		weatherData.setMeasurements(expectedTemp, expectedHumidity, expectedPressure);
+
+		// Updated
+		assertEquals(statsDisplay.getAverage(), expectedTemp, precision);
+		assertEquals(statsDisplay.getMax(), Math.max(expectedTemp, Math.max(expectedPressure, expectedHumidity)), precision);
+		assertEquals(statsDisplay.getMin(), expectedTemp, precision);
+	}
+
+	@Test
+	public void weatherDataShouldUpdateObserverForecastDisplay() {
+		// Not updated yet
+		assertEquals(forecastDisplay.getPressure(), 0, precision);
+		
+		// Update weather data
+		weatherData.setMeasurements(expectedTemp, expectedHumidity, expectedPressure);
+
+		// Updated
+		assertEquals(forecastDisplay.getPressure(), expectedPressure, precision);
+	}
+
 	
 }
