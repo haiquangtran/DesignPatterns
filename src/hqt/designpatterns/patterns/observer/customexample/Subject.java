@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.observer;
+package hqt.designpatterns.patterns.observer.customexample;
 
 public interface Subject {
 	public void registerObserver(Observer obs);

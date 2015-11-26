@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.observer;
+package hqt.designpatterns.patterns.observer.customexample;
 
 import java.util.ArrayList;
 

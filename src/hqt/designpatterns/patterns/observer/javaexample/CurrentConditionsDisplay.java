@@ -1,4 +1,7 @@
-package hqt.designpatterns.patterns.observer;
+package hqt.designpatterns.patterns.observer.javaexample;
+
+import java.util.Observable;
+import java.util.Observer;
 
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
 	private double temperature;
@@ -35,6 +38,12 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 	
 	public double getPressure() {
 		return pressure;
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

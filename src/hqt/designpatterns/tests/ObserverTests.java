@@ -7,15 +7,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import hqt.designpatterns.patterns.observer.*;
+import hqt.designpatterns.patterns.observer.customexample.*;
 import hqt.designpatterns.patterns.strategy.*;
-import hqt.designpatterns.patterns.strategy.exampleone.AbstractCharacter;
-import hqt.designpatterns.patterns.strategy.exampleone.BowAndArrowBehaviour;
-import hqt.designpatterns.patterns.strategy.exampleone.King;
-import hqt.designpatterns.patterns.strategy.exampleone.NoWeaponBehaviour;
-import hqt.designpatterns.patterns.strategy.exampleone.Queen;
-import hqt.designpatterns.patterns.strategy.exampleone.SwordBehaviour;
-import hqt.designpatterns.patterns.strategy.exampleone.Troll;
 
 import org.hamcrest.core.IsInstanceOf;
 import org.junit.After;

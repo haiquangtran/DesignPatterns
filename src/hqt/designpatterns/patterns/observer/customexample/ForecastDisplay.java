@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.observer;
+package hqt.designpatterns.patterns.observer.customexample;
 
 public class ForecastDisplay implements Observer, DisplayElement {
 	private double pressure;

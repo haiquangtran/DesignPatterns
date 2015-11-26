@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.observer;
+package hqt.designpatterns.patterns.observer.customexample;
 
 public interface Observer {
 	public void update(double temp, double humidity, double pressure);
