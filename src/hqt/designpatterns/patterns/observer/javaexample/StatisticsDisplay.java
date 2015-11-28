@@ -1,17 +1,20 @@
 package hqt.designpatterns.patterns.observer.javaexample;
 
+import java.util.Observable;
+import java.util.Observer;
+
 public class StatisticsDisplay implements Observer, DisplayElement {
 	private double average;
 	private double max;
 	private double min = Double.POSITIVE_INFINITY;
 	private double total;
 	private int count;
-	private Subject weatherData;
+	private Observable weatherData;
 	
-	public StatisticsDisplay(Subject weatherData) {
+	public StatisticsDisplay(Observable weatherData) {
 		this.weatherData = weatherData;
 		// Register the observer
-		weatherData.registerObserver(this);
+		weatherData.addObserver(this);
 	}
 	
 	@Override
@@ -20,14 +23,17 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 	}
 
 	@Override
-	public void update(double temp, double humidity, double pressure) {
-		count++;
-		this.average = (average + temp)/count;
-		this.max = Math.max(max, temp);
-		this.min = Math.min(min, temp);
-		display();
+	public void update(Observable obs, Object args) {
+		if (obs instanceof WeatherData) {
+			count++;
+			WeatherData data = (WeatherData) obs;
+			this.average = (average + data.getTemperature())/count;
+			this.max = Math.max(max, data.getTemperature());
+			this.min = Math.min(min, data.getTemperature());
+			display();
+		}
 	}
-
+	
 	public double getAverage() {
 		return average;
 	}
@@ -39,4 +45,5 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 	public double getMin() {
 		return min;
 	}
+
 }

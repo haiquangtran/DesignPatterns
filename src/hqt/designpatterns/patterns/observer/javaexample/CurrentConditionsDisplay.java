@@ -7,12 +7,12 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 	private double temperature;
 	private double humidity;
 	private double pressure;
-	private Subject weatherData;
+	private Observable weatherData;
 	
-	public CurrentConditionsDisplay(Subject weatherData) {
+	public CurrentConditionsDisplay(Observable weatherData) {
 		this.weatherData = weatherData;
 		// Register the observer
-		weatherData.registerObserver(this);
+		weatherData.addObserver(this);
 	}
 	
 	@Override
@@ -21,11 +21,14 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 	}
 
 	@Override
-	public void update(double temp, double humidity, double pressure) {
-		this.temperature = temp;
-		this.humidity = humidity;
-		this.pressure = pressure;
-		display();
+	public void update(Observable obs, Object args) {
+		if (obs instanceof WeatherData) {
+			WeatherData data = (WeatherData) obs;
+			this.temperature = data.getTemperature();
+			this.humidity = data.getHumidity();
+			this.pressure = data.getPressure();
+			display();	
+		}
 	}
 	
 	public double getTemperature() {
@@ -38,12 +41,6 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 	
 	public double getPressure() {
 		return pressure;
-	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

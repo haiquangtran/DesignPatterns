@@ -38,7 +38,7 @@ public class WeatherData extends Observable {
 	public void measurementsChanged() { 
 		// This is required for the observer from java package
 		setChanged();
-		// We aren't sending a data object with the nofiy method, hence this is a pull method
+		// We aren't sending a data object with the notify method, hence this is a pull method
 		notifyObservers();
 	}
 
