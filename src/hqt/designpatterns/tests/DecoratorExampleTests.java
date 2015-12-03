@@ -1,6 +1,7 @@
 package hqt.designpatterns.tests;
 
 import static org.junit.Assert.*;
+import hqt.designpatterns.patterns.decorator.*;
 
 import org.junit.Test;
 
@@ -11,8 +12,8 @@ public class DecoratorExampleTests {
 	public void expressoCoffeeShouldCost1Dollar99Cents() {
 		Beverage beverage = new Espresso();
 
-		assertEquals(beverage.getDescription(), "Expresso");
-		assertEquals("Expresso Should Cost $1.99", beverage.cost(), 1.99, precision);
+		assertEquals(beverage.getDescription(), "Espresso");
+		assertEquals("Espresso Should Cost $1.99", beverage.cost(), 1.99, precision);
 	}
 
 	@Test
