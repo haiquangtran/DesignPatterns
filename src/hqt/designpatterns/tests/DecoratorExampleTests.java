@@ -5,6 +5,8 @@ import hqt.designpatterns.patterns.decorator.*;
 
 import org.junit.Test;
 
+import com.sun.javafx.css.SizeUnits;
+
 public class DecoratorExampleTests {
 	private double precision = 0.0;
 
@@ -36,6 +38,36 @@ public class DecoratorExampleTests {
 
 		assertEquals(beverage3.getDescription(), "House Blend Coffee, Soy, Mocha, Whip");
 		assertEquals("House Blend Coffee, Soy, Mocha, Whip Should Cost $1.34", beverage3.cost(), 1.34, precision);
+	}
+	
+	@Test
+	public void houseBlendCoffeeTallSizeWithSoyShouldCost99Cents() {
+		Beverage tallBeverage = new HouseBlend();
+		tallBeverage.setSize(Size.TALL);
+		tallBeverage = new Soy(tallBeverage);
+
+		assertEquals(tallBeverage.getDescription(), "House Blend Coffee, Soy");
+		assertEquals("House Blend Coffee, Soy Should Cost $.99", tallBeverage.cost(), .99, precision);
+	}
+	
+	@Test
+	public void houseBlendCoffeeGrandeSizeWithSoyShouldCost1DollarAnd4Cents() {
+		Beverage grandeBeverage = new HouseBlend();
+		grandeBeverage.setSize(Size.GRANDE);
+		grandeBeverage = new Soy(grandeBeverage);
+
+		assertEquals(grandeBeverage.getDescription(), "House Blend Coffee, Soy");
+		assertEquals("House Blend Coffee, Soy Should Cost $.89 + $.15 = $1.04", grandeBeverage.cost(), 1.04, precision);
+	}
+
+	@Test
+	public void houseBlendCoffeeVentiWithSoyShouldCost99Cents() {
+		Beverage ventiBeverage = new HouseBlend();
+		ventiBeverage.setSize(Size.VENTI);
+		ventiBeverage = new Soy(ventiBeverage);
+
+		assertEquals(ventiBeverage.getDescription(), "House Blend Coffee, Soy");
+		assertEquals("House Blend Coffee, Soy Should Cost $1.09", ventiBeverage.cost(), 1.09, precision);
 	}
 
 }
