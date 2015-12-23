@@ -21,7 +21,6 @@ public class ObserverCustomExampleTests {
 	private CurrentConditionsDisplay currentDisplay;
 	private StatisticsDisplay statsDisplay;
 	private ForecastDisplay forecastDisplay;
-	// 
 	private double expectedTemp = 80;
 	private double expectedHumidity = 65;
 	private double expectedPressure = 30.4;
