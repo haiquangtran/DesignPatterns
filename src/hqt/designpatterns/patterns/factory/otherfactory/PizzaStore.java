@@ -15,6 +15,11 @@ public abstract class PizzaStore {
 		return pizza;
 	}
 	
+	/**
+	 *  Factory method
+	 * @param type
+	 * @return
+	 */
 	public abstract Pizza createPizza(String type);
 	
 }
