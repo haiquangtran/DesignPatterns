@@ -8,3 +8,11 @@ Implementation for learning design patterns based on the book: Head First Design
 
 ###### Observer Pattern
 * Defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.  
+
+###### Decorator Pattern
+* The Decorator Pattern attaches additional responsibilities to an object dynamically. 
+* Decorators provide a flexible alternative to subclassing for extending functionality.
+
+###### Factory Pattern
+* The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory method lets a class defer instantiation to subclasses. 
+
