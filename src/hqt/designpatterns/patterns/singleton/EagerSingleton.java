@@ -1,9 +1,9 @@
 package hqt.designpatterns.patterns.singleton;
 
-public class LazySingleton {
-	private static LazySingleton uniqueInstance;
+public class EagerSingleton {
+	private static EagerSingleton uniqueInstance = new EagerSingleton();
 	
-	private LazySingleton() { }
+	private EagerSingleton() { }
 	
 	/**
 	 * MULTITHREADING OPTIONS:
@@ -22,18 +22,14 @@ public class LazySingleton {
 	 * 
 	 * @return
 	 */
-	public static synchronized LazySingleton getInstance() {
-		if (uniqueInstance == null) {
-			uniqueInstance = new LazySingleton();
-		}
+	public static EagerSingleton getInstance() {
 		return uniqueInstance;
 	}
-	
 	
 	/**
 	 * For testing purposes only.
 	 */
-	public static LazySingleton getUniqueInstance() {
+	public static EagerSingleton getUniqueInstance() {
 		return uniqueInstance;
 	}
 

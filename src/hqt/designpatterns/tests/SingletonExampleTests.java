@@ -4,7 +4,9 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import hqt.designpatterns.patterns.factory.otherfactory.NYCheesePizza;
+import hqt.designpatterns.patterns.singleton.EagerSingleton;
 import hqt.designpatterns.patterns.singleton.LazySingleton;
+import hqt.designpatterns.patterns.singleton.LockingSingleton;
 
 import org.junit.Test;
 
@@ -26,8 +28,8 @@ public class SingletonExampleTests {
 	@Test
 	public void uniqueInstanceShouldBeALockingSingleton() {
 		// Lazy Instantiation for singleton locking class
-		assertEquals(LockingSingleto.getUniqueInstance(), null);
-		assertThat(LockingSingleto.getInstance(), instanceOf(LockingSingleto.class));
+		assertEquals(LockingSingleton.getUniqueInstance(), null);
+		assertThat(LockingSingleton.getInstance(), instanceOf(LockingSingleton.class));
 	}
 
 }

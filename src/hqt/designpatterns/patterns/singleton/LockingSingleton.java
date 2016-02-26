@@ -1,9 +1,10 @@
 package hqt.designpatterns.patterns.singleton;
 
-public class LazySingleton {
-	private static LazySingleton uniqueInstance;
+public class LockingSingleton {
+	// volatile: Ensures multiple threads handle uniqueInstance correctly when initialized to the instance. 
+	private volatile static LockingSingleton uniqueInstance;
 	
-	private LazySingleton() { }
+	private LockingSingleton() { }
 	
 	/**
 	 * MULTITHREADING OPTIONS:
@@ -22,18 +23,22 @@ public class LazySingleton {
 	 * 
 	 * @return
 	 */
-	public static synchronized LazySingleton getInstance() {
+	public static LockingSingleton getInstance() {
 		if (uniqueInstance == null) {
-			uniqueInstance = new LazySingleton();
+			// Only synchronize the first time through
+			synchronized (LockingSingleton.class) {
+				if (uniqueInstance == null) {
+					uniqueInstance = new LockingSingleton();
+				}
+			}
 		}
 		return uniqueInstance;
 	}
 	
-	
 	/**
 	 * For testing purposes only.
 	 */
-	public static LazySingleton getUniqueInstance() {
+	public static LockingSingleton getUniqueInstance() {
 		return uniqueInstance;
 	}
 
