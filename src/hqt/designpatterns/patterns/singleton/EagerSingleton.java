@@ -1,5 +1,15 @@
 package hqt.designpatterns.patterns.singleton;
 
+/**
+ * Warnings:
+ * Be careful if using multiple class loaders; this could defeat the Singleton implementation 
+ * and result in multiple instances.
+ * 
+ * If using JVM earlier than 1.2, you need to create registry of Singletons to defeat the garbage collector.
+ * 
+ * @author Hai
+ *
+ */
 public class EagerSingleton {
 	private static EagerSingleton uniqueInstance = new EagerSingleton();
 	
