@@ -10,15 +10,25 @@ import org.junit.Test;
 
 public class SingletonExampleTests {
 
-		@Test
-		public void uniqueInstanceShouldBeALazySingleton() {
-			// Lazy Instantiation for singleton class
-			assertEquals(LazySingleton.getUniqueInstance(), null);
-			assertThat(LazySingleton.getInstance(), instanceOf(LazySingleton.class));
-		}
-		
+	@Test
+	public void uniqueInstanceShouldBeALazySingleton() {
+		// Lazy Instantiation for singleton class
+		assertEquals(LazySingleton.getUniqueInstance(), null);
+		assertThat(LazySingleton.getInstance(), instanceOf(LazySingleton.class));
+	}
 
+	@Test
+	public void uniqueInstanceShouldBeAEagerSingleton() {
+		assertThat(EagerSingleton.getUniqueInstance(), instanceOf(EagerSingleton.class));
+		assertThat(EagerSingleton.getInstance(), instanceOf(EagerSingleton.class));
+	}
 
+	@Test
+	public void uniqueInstanceShouldBeALockingSingleton() {
+		// Lazy Instantiation for singleton locking class
+		assertEquals(LockingSingleto.getUniqueInstance(), null);
+		assertThat(LockingSingleto.getInstance(), instanceOf(LockingSingleto.class));
+	}
 
 }
 
