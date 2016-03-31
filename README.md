@@ -19,3 +19,6 @@ Implementation for learning design patterns based on the book: Head First Design
 ###### Singleton Pattern
 * The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it. 
 
+##### The Command Pattern
+* Encapsulates a request as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations.
+* 
