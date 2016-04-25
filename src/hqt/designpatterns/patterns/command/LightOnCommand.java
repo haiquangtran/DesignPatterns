@@ -7,7 +7,6 @@ public class LightOnCommand implements Command {
 		this.light = light;
 	}
 	
-	@Override
 	public void execute() {
 		light.on();
 	}

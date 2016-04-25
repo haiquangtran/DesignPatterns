@@ -34,10 +34,11 @@ public class CommandExampleTests {
 	@Test
 	public void remoteShouldOpenGarageDoor() {
 		GarageDoor garage = new GarageDoor();
-		remote.setCommand(new GarageDoorOpenCommand(garage));
-		assertTrue("light should be off", !garage.isOpen());
-		remote.buttonWasPressed();;
-		assertTrue("light should now be on", garage.isOpen());
+		Command command = new GarageDoorOpenCommand(garage);
+		remote.setCommand(command);
+		assertTrue("garage closed", !garage.isOpen());
+		remote.buttonWasPressed();
+		assertTrue("garage open", garage.isOpen());
 	}
 
 	@Test 
@@ -45,11 +46,11 @@ public class CommandExampleTests {
 		GarageDoor garage = new GarageDoor();
 		Light light = new Light();
 		
-		remote.setCommand(new LightOnCommand(light);
+		remote.setCommand(new LightOnCommand(light));
 		remote.buttonWasPressed();
 		assertTrue(light.isOn());
 
-		remote.setCommand(new GarageOpenCommand(garage));
+		remote.setCommand(new GarageDoorOpenCommand(garage));
 		remote.buttonWasPressed();
 		assertTrue(garage.isOpen());
 	}
