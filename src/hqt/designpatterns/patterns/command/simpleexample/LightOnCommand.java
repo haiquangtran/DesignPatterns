@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.command;
+package hqt.designpatterns.patterns.command.simpleexample;
 
 public class LightOnCommand implements Command {
 	Light light;

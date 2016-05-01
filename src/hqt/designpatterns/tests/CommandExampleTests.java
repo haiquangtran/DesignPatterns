@@ -5,6 +5,12 @@ import static org.junit.Assert.*;
 import java.io.PrintStream;
 
 import hqt.designpatterns.patterns.command.*;
+import hqt.designpatterns.patterns.command.simpleexample.Command;
+import hqt.designpatterns.patterns.command.simpleexample.GarageDoor;
+import hqt.designpatterns.patterns.command.simpleexample.GarageDoorOpenCommand;
+import hqt.designpatterns.patterns.command.simpleexample.Light;
+import hqt.designpatterns.patterns.command.simpleexample.LightOnCommand;
+import hqt.designpatterns.patterns.command.simpleexample.SimpleRemoteControl;
 import hqt.designpatterns.patterns.decorator.*;
 
 import org.junit.Before;

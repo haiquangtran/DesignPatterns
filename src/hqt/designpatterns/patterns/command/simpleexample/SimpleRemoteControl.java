@@ -1,4 +1,4 @@
-package hqt.designpatterns.patterns.command;
+package hqt.designpatterns.patterns.command.simpleexample;
 
 /**
  * An API that is able to control various different devices
