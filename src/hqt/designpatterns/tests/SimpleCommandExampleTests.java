@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.io.PrintStream;
 
 import hqt.designpatterns.patterns.command.*;
+import hqt.designpatterns.patterns.command.exampleone.*;
 import hqt.designpatterns.patterns.command.simpleexample.Command;
 import hqt.designpatterns.patterns.command.simpleexample.GarageDoor;
 import hqt.designpatterns.patterns.command.simpleexample.GarageDoorOpenCommand;
@@ -17,48 +18,51 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class CommandExampleTests {
+public class SimpleCommandExampleTests {
 	private double precision = 0.0;
-	private SimpleRemoteControl remote;
+	private SimpleRemoteControl simpleRemote;
 
 	@Before
 	public void setUpSimpleRemoteControl() {
-		remote = new SimpleRemoteControl();
+		simpleRemote = new SimpleRemoteControl();
 	}
 
+	/**
+	 *  SIMPLE REMOTE CONTROL TESTS
+	 */
+	
 	@Test
-	public void remoteShouldTurnLightOn() {
+	public void simpleRemoteShouldTurnLightOn() {
 		Light light = new Light();
 		LightOnCommand command = new LightOnCommand(light);
-		remote.setCommand(command);
+		simpleRemote.setCommand(command);
 
 		assertTrue("light should be off", !light.isOn());
-		remote.buttonWasPressed();
+		simpleRemote.buttonWasPressed();
 		assertTrue("light should now be on", light.isOn());
 	}
 
 	@Test
-	public void remoteShouldOpenGarageDoor() {
+	public void simpleRemoteShouldOpenGarageDoor() {
 		GarageDoor garage = new GarageDoor();
 		Command command = new GarageDoorOpenCommand(garage);
-		remote.setCommand(command);
+		simpleRemote.setCommand(command);
 		assertTrue("garage closed", !garage.isOpen());
-		remote.buttonWasPressed();
+		simpleRemote.buttonWasPressed();
 		assertTrue("garage open", garage.isOpen());
 	}
 
 	@Test 
-	public void remoteShouldTurnOnLightsAndOpenGarageDoor() {
+	public void simpleRemoteShouldTurnOnLightsAndOpenGarageDoor() {
 		GarageDoor garage = new GarageDoor();
 		Light light = new Light();
-		
-		remote.setCommand(new LightOnCommand(light));
-		remote.buttonWasPressed();
+
+		simpleRemote.setCommand(new LightOnCommand(light));
+		simpleRemote.buttonWasPressed();
 		assertTrue(light.isOn());
 
-		remote.setCommand(new GarageDoorOpenCommand(garage));
-		remote.buttonWasPressed();
+		simpleRemote.setCommand(new GarageDoorOpenCommand(garage));
+		simpleRemote.buttonWasPressed();
 		assertTrue(garage.isOpen());
 	}
-
 }
