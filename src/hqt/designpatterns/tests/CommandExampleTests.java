@@ -39,7 +39,7 @@ public class CommandExampleTests {
 		remoteControl.onButtonWasPushed(slot);
 		assertTrue("light should now be on", light.isOn());
 		remoteControl.offButtonWasPushed(slot);
-		assertTrue("light should now be off", light.isOn());
+		assertFalse("light should now be off", light.isOn());
 		assertEquals("Light should be in the living room", "Living Room", light.getLocation());
 	}
 	
@@ -57,7 +57,7 @@ public class CommandExampleTests {
 		remoteControl.onButtonWasPushed(slot);
 		assertTrue("stereo should now be on playing a CD", stereo.isOn());
 		remoteControl.offButtonWasPushed(slot);
-		assertTrue("stereo should now be off", stereo.isOn());
+		assertFalse("stereo should now be off", stereo.isOn());
 		assertEquals("Stereo should be in the living room", "Living Room", stereo.getLocation());
 	}
 
@@ -75,7 +75,7 @@ public class CommandExampleTests {
 		remoteControl.onButtonWasPushed(slot);
 		assertTrue("fan should now be on", fan.isOn());
 		remoteControl.offButtonWasPushed(slot);
-		assertTrue("fan should now be off", fan.isOn());
+		assertFalse("fan should now be off", fan.isOn());
 		assertEquals("Fan should be in the living room", "Living Room", fan.getLocation());
 	}
 
@@ -93,7 +93,7 @@ public class CommandExampleTests {
 		remoteControl.onButtonWasPushed(slot);
 		assertTrue("light should now be on", light.isOn());
 		remoteControl.offButtonWasPushed(slot);
-		assertTrue("light should now be off", light.isOn());
+		assertFalse("light should now be off", light.isOn());
 		assertEquals("Light should be in the Kitchen", "Kitchen", light.getLocation());
 	}
 }
