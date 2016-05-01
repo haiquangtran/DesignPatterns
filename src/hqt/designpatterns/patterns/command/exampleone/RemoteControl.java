@@ -18,7 +18,7 @@ public class RemoteControl {
 	private Command[] offCommands;
 
 	public RemoteControl() {
-		int size = 7;
+		int size = 4;
 		this.onCommands = new Command[size]; 
 		this.offCommands = new Command[size]; 
 
