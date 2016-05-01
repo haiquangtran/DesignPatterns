@@ -14,9 +14,7 @@ import org.junit.Test;
 
 
 public class CommandExampleTests {
-	private double precision = 0.0;
 	private RemoteControl remoteControl;
-	private ArrayList slotComponents = new ArrayList();
 
 	@Before
 	public void setUpRemoteControl() {
@@ -28,8 +26,8 @@ public class CommandExampleTests {
 	 */
 	
 	@Test
-	public void slot1ShouldTurnLivingRoomLightOnAndOff() {
-		int slot = 1;
+	public void remoteControlSlot1ShouldTurnLivingRoomLightOnAndOff() {
+		int slot = 0;
 		// Other existing API
 		Light light = new Light("Living Room");
 		// Commands interfacing with the existing API's 
@@ -46,8 +44,8 @@ public class CommandExampleTests {
 	}
 	
 	@Test
-	public void slot2ShouldTurnLivingRoomStereoOnAndOff() {
-		int slot = 2;
+	public void remoteControlSlot2ShouldTurnLivingRoomStereoOnAndOff() {
+		int slot = 1;
 		// Other existing API
 		Stereo stereo = new Stereo("Living Room");
 		// Commands interfacing with the existing API's 
@@ -64,10 +62,10 @@ public class CommandExampleTests {
 	}
 
 	@Test
-	public void slot3ShouldTurnLivingRoomCeilingFanOnAndOff() {
-		int slot = 3;
+	public void remoteControlSlot3ShouldTurnLivingRoomCeilingFanOnAndOff() {
+		int slot = 2;
 		// Other existing API
-		CelingFan fan = new CelingFan();
+		CeilingFan fan = new CeilingFan("Living Room");
 		// Commands interfacing with the existing API's 
 		CeilingFanOnCommand onCommandSlot = new CeilingFanOnCommand(fan);
 		CeilingFanOffCommand offCommandSlot = new CeilingFanOffCommand(fan);
@@ -82,8 +80,8 @@ public class CommandExampleTests {
 	}
 
 	@Test
-	public void slot1ShouldTurnKitchenLightOnAndOff() {
-		int slot = 4;
+	public void remoteControlSlot4ShouldTurnKitchenLightOnAndOff() {
+		int slot = 3;
 		// Other existing API
 		Light light = new Light("Kitchen");
 		// Commands interfacing with the existing API's 
