@@ -21,3 +21,8 @@ Implementation for learning design patterns based on the book: Head First Design
 
 ###### The Command Pattern
 * Encapsulates a request as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations.
+
+###### The Null Object Pattern
+* A new class that is neutral or does nothing. A null object is useful when you don't have a meaningful object to return, and yet you want to remove the responsibility for handling null from the client (Elminates the need for null checks etc). 
+
+
