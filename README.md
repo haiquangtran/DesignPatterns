@@ -1,6 +1,6 @@
 # Design Patterns
 
-Repo for learning design patterns.
+Repository for learning design patterns.
 Implementation for learning design patterns based on the book: Head First Design Patterns by Eric Freeman, Elisabeth Robson, Bert Bates, Kathy Sierra.
 
 ###### Strategy Pattern
